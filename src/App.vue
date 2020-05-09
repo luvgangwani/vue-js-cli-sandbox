@@ -2,7 +2,6 @@
   <div id="app">
     <h1>{{ title }}</h1>
     <p>{{ greetings() }}</p>
-    <h4>Employee List</h4>
     <employees></employees>
   </div>
 </template>
@@ -27,6 +26,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+  h1 {
+    color: blue;
+  }
 </style>
