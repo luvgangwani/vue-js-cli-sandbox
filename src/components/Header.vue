@@ -1,16 +1,29 @@
 <template>
     <div class="header">
-        <header>{{ header }}</header>
+        <header v-on:click="changeHeader()">{{ header }}</header>
     </div>
 </template>
 
 <script>
 export default {
+
+    props: {
+        header: {
+            type: String
+        }
+    },
+    
     data() {
         return {
-            header: 'Employee List'
+            
         }
-    }
+    },
+    
+    methods: {
+        changeHeader: function() {
+            this.$emit('changeHeader', 'Employees Names'); // first parameter does not have to be the same as the function name (object key)
+        }
+    },
 }
 </script>
 
