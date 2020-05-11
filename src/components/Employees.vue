@@ -10,6 +10,10 @@
 </template>
 
 <script>
+// Reference types - change in one component is reflected in the other - Objects, Arrays
+
+// Value types - Changes in one component is not reflected in the other - Strings, Booleans and Numbers
+
 export default {
 
     props: {
