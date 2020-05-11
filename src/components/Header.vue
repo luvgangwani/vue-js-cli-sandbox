@@ -5,23 +5,28 @@
 </template>
 
 <script>
-export default {
 
-    props: {
-        header: {
-            type: String
-        }
-    },
+import { bus } from '../main';
+
+export default {
     
     data() {
         return {
-            
+            header: 'Employees List'
         }
     },
     
     methods: {
         changeHeader: function() {
-            this.$emit('changeHeader', 'Employees Names'); // first parameter does not have to be the same as the function name (object key)
+            // this.$emit('changeHeader', 'Employees Names'); // first parameter does not have to be the same as the function name (object key)
+
+            const updatedTitle = 'Employees Names';
+
+            this.header = updatedTitle;
+
+            // event buses are used to change data in sibling components (whereas events are used between child and parent components)
+
+            bus.$emit('changeHeader', updatedTitle);
         }
     },
 }

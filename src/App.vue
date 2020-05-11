@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <app-header v-bind:header="header" v-on:changeHeader="updateHeader($event)"></app-header>
+    <app-header v-on:changeHeader="updateHeader($event)"></app-header>
     <app-content v-bind:employees="employees"></app-content>
     <app-footer></app-footer>
   </div>
@@ -20,7 +20,6 @@ export default {
   },
   data () {
     return {
-      header: 'Employee List',
       employees: [
           {
               name: 'Test One',
@@ -57,10 +56,6 @@ export default {
   },
   methods: {
     
-    updateHeader: function(updatedHeader) {
-      this.header = updatedHeader;
-    }
-
   },
 }
 </script>

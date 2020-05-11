@@ -5,11 +5,21 @@
 </template>
 
 <script>
+
+import { bus } from '../main';
+
 export default {
     data() {
         return {
             footer: 'Copyright 2020'
         }
+    },
+
+    created() {
+
+        bus.$on('changeHeader', (data) => {
+            this.footer = `${this.footer} ${data}`;
+        });
     }
 }
 </script>
