@@ -1,33 +1,34 @@
 <template>
   <div id="app">
-    <h1>{{ title }}</h1>
-    <p>{{ greetings() }}</p>
-    <employees></employees>
+    <app-header></app-header>
+    <app-content></app-content>
+    <app-footer></app-footer>
   </div>
 </template>
 
 <script>
-import Employees from './Employees.vue';
+
+import Header from './components/Header.vue';
+import Footer from './components/Footer.vue';
+import Employees from './components/Employees.vue';
 
 export default {
   components: {
-    'employees': Employees
+    'app-header': Header,
+    'app-footer': Footer,
+    'app-content': Employees,
   },
   data () {
     return {
-      title: 'Vue JS Using CLI'
+      
     }
   },
   methods: {
-    greetings() {
-      return 'Welcome to the first Vue JS application created using CLI';
-    }
+    
   },
 }
 </script>
 
 <style scoped>
-  h1 {
-    color: blue;
-  }
+  
 </style>
