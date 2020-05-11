@@ -1,57 +1,32 @@
 <template>
-  <div id="app">
-    <app-header v-on:changeHeader="updateHeader($event)"></app-header>
-    <app-content v-bind:employees="employees"></app-content>
-    <app-footer></app-footer>
+  <div>
+    <form-template>
+      <div slot="form-header">{{ formHeader }}</div>
+
+      <div slot="form-fields">
+        <input type="text" placeholder="Username" />
+        <input type="password" placeholder="Password" />
+      </div>
+
+      <div slot="form-controls">
+        <button type="Submit">Submit</button>
+      </div>
+    </form-template>
   </div>
 </template>
 
 <script>
 
-import Header from './components/Header.vue';
-import Footer from './components/Footer.vue';
-import Employees from './components/Employees.vue';
+import formTemplate from './components/formTemplate';
 
 export default {
+
   components: {
-    'app-header': Header,
-    'app-footer': Footer,
-    'app-content': Employees,
+    'form-template': formTemplate
   },
   data () {
     return {
-      employees: [
-          {
-              name: 'Test One',
-              speciality: 'Speciality One',
-              show: false
-          },
-          {
-              name: 'Test Two',
-              speciality: 'Speciality Two',
-              show: false
-          },
-          {
-              name: 'Test Three',
-              speciality: 'Speciality Three',
-              show: false
-          },
-          {
-              name: 'Test Four',
-              speciality: 'Speciality Four',
-              show: false
-          },
-          {
-              name: 'Test Five',
-              speciality: 'Speciality Five',
-              show: false
-          },
-          {
-              name: 'Test Six',
-              speciality: 'Speciality Six',
-              show: false
-          },
-      ]
+      formHeader: 'Login'
     }
   },
   methods: {
