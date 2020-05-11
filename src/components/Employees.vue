@@ -11,41 +11,17 @@
 
 <script>
 export default {
-    
+
+    props: {
+        employees: {
+            type: Array,
+            required: true
+        }
+    },
+
     data() {
         return {
-            employees: [
-                {
-                    name: 'Test One',
-                    speciality: 'Speciality One',
-                    show: false
-                },
-                {
-                    name: 'Test Two',
-                    speciality: 'Speciality Two',
-                    show: false
-                },
-                {
-                    name: 'Test Three',
-                    speciality: 'Speciality Three',
-                    show: false
-                },
-                {
-                    name: 'Test Four',
-                    speciality: 'Speciality Four',
-                    show: false
-                },
-                {
-                    name: 'Test Five',
-                    speciality: 'Speciality Five',
-                    show: false
-                },
-                {
-                    name: 'Test Six',
-                    speciality: 'Speciality Six',
-                    show: false
-                },
-            ]
+
         };
     }
 
