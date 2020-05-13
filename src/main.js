@@ -12,11 +12,11 @@ Vue.use(VueResource);
 
 // Custom Directives
 
-Vue.directive('rainbow', function(el, binding, vnode) {
+/* Vue.directive('rainbow', function(el, binding, vnode) {
 
   el.style.color = `#${Math.random().toString().slice(2, 8)}`;
 
-});
+}); */
 
 Vue.directive('theme', function(el, binding, vnode) {
   if (binding.value == 'wide') {
@@ -37,9 +37,9 @@ Vue.directive('theme', function(el, binding, vnode) {
 
 // Filters
 
-Vue.filter('to-uppercase', function(value) {
+/* Vue.filter('to-uppercase', function(value) {
   return value.toUpperCase();
-});
+}); */
 
 Vue.filter('snippet', function(value) {
   return value.slice(0, 100) + '...';
