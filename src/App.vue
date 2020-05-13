@@ -1,26 +1,21 @@
 <template>
   <div>
-      <component v-bind:is="component"></component>
-      <button type="button" v-on:click="component = 'register'">Register</button>
-      <button type="button" v-on:click="component = 'login'">Login</button>
-
+      <add-blog></add-blog>
   </div>
 </template>
 
 <script>
 
-import register from './components/Register';
-import login from './components/Login';
+  import addBlog from "./components/AddBlog";
 
 export default {
 
   components: {
-    register,
-    login
+    'add-blog': addBlog
   },
   data () {
     return {
-      component: 'register'
+
     }
   },
   methods: {
@@ -29,6 +24,11 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
+
+body{
+    margin: 0;
+    font-family: 'sans-serif';
+}
   
 </style>
