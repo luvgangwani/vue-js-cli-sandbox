@@ -35,6 +35,16 @@ Vue.directive('theme', function(el, binding, vnode) {
   }
 });
 
+// Filters
+
+Vue.filter('to-uppercase', function(value) {
+  return value.toUpperCase();
+});
+
+Vue.filter('snippet', function(value) {
+  return value.slice(0, 100) + '...';
+});
+
 new Vue({
   el: '#app',
   render: h => h(App)
