@@ -2,6 +2,7 @@
   <div>
       <!-- <add-blog></add-blog> -->
       <show-blogs></show-blogs>
+      <list-blogs></list-blogs>
   </div>
 </template>
 
@@ -9,12 +10,14 @@
 
 import addBlog from "./components/AddBlog";
 import showBlogs from './components/ShowBlogs';
+import listBlogs from './components/ListBlogs';
 
 export default {
 
   components: {
     'add-blog': addBlog,
-    'show-blogs': showBlogs
+    'show-blogs': showBlogs,
+    'list-blogs': listBlogs
   },
   data () {
     return {
