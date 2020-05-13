@@ -6,7 +6,7 @@
 
 <script>
 
-  import addBlog from "./components/AddBlog";
+import addBlog from "./components/AddBlog";
 
 export default {
 
