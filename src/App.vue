@@ -1,32 +1,26 @@
 <template>
   <div>
-    <form-template>
-      <div slot="form-header">{{ formHeader }}</div>
+      <component v-bind:is="component"></component>
+      <button type="button" v-on:click="component = 'register'">Register</button>
+      <button type="button" v-on:click="component = 'login'">Login</button>
 
-      <div slot="form-fields">
-        <input type="text" placeholder="Username" />
-        <input type="password" placeholder="Password" />
-      </div>
-
-      <div slot="form-controls">
-        <button type="Submit">Submit</button>
-      </div>
-    </form-template>
   </div>
 </template>
 
 <script>
 
-import formTemplate from './components/formTemplate';
+import register from './components/Register';
+import login from './components/Login';
 
 export default {
 
   components: {
-    'form-template': formTemplate
+    register,
+    login
   },
   data () {
     return {
-      formHeader: 'Login'
+      component: 'register'
     }
   },
   methods: {
