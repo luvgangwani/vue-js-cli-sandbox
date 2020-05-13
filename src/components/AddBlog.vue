@@ -16,6 +16,9 @@
                 <label for="mythology">Mythology</label>
                 <input type="checkbox" name="" id="" value="mythology" v-model="blog.categories">
             </div>
+            <select name="" id="" v-model="blog.author">
+                <option v-bind:key="index" v-for="(author, index) in authors">{{ author }}</option>
+            </select>
         </form>
 
         <div id="preview">
@@ -25,8 +28,9 @@
             <p>{{ blog.content }}</p>
             <p>Categories:</p>
             <ul>
-                <li v-for="category in blog.categories">{{ category }}</li>
+                <li v-bind:key="index" v-for="(category, index) in blog.categories">{{ category }}</li>
             </ul>
+            <p>Author: {{ blog.author }}</p>
         </div>
     </div>
 </template>
@@ -38,8 +42,14 @@ export default {
             blog: {
                 title: '',
                 content: '',
-                categories: []
-            }
+                categories: [],
+                author: ''
+            },
+            authors: [
+                'Atom',
+                'White Canary',
+                'Mr. Steele'
+            ]
         }
     },
 
