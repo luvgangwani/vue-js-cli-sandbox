@@ -3,8 +3,8 @@
         <h2>All Blog Articles</h2>
         <input type="text" v-model="search" placeholder="Search Blogs" />
         <div class="single-blog" v-bind:key="index" v-for="(blog, index) in filteredBlogs">
-            <router-link v-bind:to="`/blog/${blog.id}`"><h3>{{ blog.title | to-uppercase }}</h3></router-link>
-            <article>{{ blog.body | snippet }}</article>
+            <router-link v-bind:to="`/blog/${blog.id}`" target="_blank"><h3>{{ blog.title | to-uppercase }}</h3></router-link>
+            <article>{{ blog.content | snippet }}</article>
         </div>
     </div>
 </template>
@@ -26,9 +26,19 @@ export default {
     },
 
     created() {
-        this.$http.get('https://jsonplaceholder.typicode.com/posts').then(function(data) {
+        this.$http.get('https://vue-js-cli-sandbox.firebaseio.com/posts.json')
+        .then(function(data) {
+            return data.json();
+        })
+        .then(function(data) {
+            const blogsArray = [];
 
-            this.blogs = data.body.splice(0, 10);
+            for (const key in data) {
+                data[key].id = key;
+                blogsArray.push(data[key]);
+            }
+            
+            this.blogs = blogsArray;
         });
     },
 
@@ -66,5 +76,9 @@ export default {
         padding: 20px;
         margin: 20px auto;
         border-radius: 10px;
+    }
+
+    #show-blogs .single-blog a {
+        text-decoration: none;
     }
 </style>

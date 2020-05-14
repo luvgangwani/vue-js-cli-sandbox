@@ -1,7 +1,12 @@
 <template>
     <div id="single-blog">
         <h2>{{ blog.title }}</h2>
-        <article>{{ blog.body }}</article>
+        <article>{{ blog.content }}</article>
+        <p>Author: {{ blog.author }}</p>
+        <p>Categories:</p>
+        <ul>
+            <li v-bind:key="index" v-for="(category, index) in blog.categories">{{ category }}</li>
+        </ul>
     </div>
 </template>
 
@@ -16,7 +21,7 @@ export default {
     },
 
     created() {
-        this.$http.get(`https://jsonplaceholder.typicode.com/posts/${this.id}`)
+        this.$http.get(`https://vue-js-cli-sandbox.firebaseio.com/posts/${this.id}.json`)
         .then(function(data){
             this.blog = data.body
         });
