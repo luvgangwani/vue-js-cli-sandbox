@@ -1,22 +1,22 @@
 import Vue from 'vue'
 import App from './App.vue'
-// import Employees from './Employees.vue';
+
 
 import VueResource from 'vue-resource';
+import VueRouter from "vue-router";
 
-// Vue.component('employees', Employees); // component is globally available for nesting if defined in the main file
+import Routes from './routes';
 
-export const bus = new Vue(); // initializing event bus
 
 Vue.use(VueResource);
+Vue.use(VueRouter);
 
-// Custom Directives
+// Routes
 
-/* Vue.directive('rainbow', function(el, binding, vnode) {
+const router = new VueRouter({
+  routes: Routes
+});
 
-  el.style.color = `#${Math.random().toString().slice(2, 8)}`;
-
-}); */
 
 Vue.directive('theme', function(el, binding, vnode) {
   if (binding.value == 'wide') {
@@ -35,17 +35,12 @@ Vue.directive('theme', function(el, binding, vnode) {
   }
 });
 
-// Filters
-
-/* Vue.filter('to-uppercase', function(value) {
-  return value.toUpperCase();
-}); */
-
 Vue.filter('snippet', function(value) {
   return value.slice(0, 100) + '...';
 });
 
 new Vue({
   el: '#app',
-  render: h => h(App)
+  render: h => h(App),
+  router: router
 })
