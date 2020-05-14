@@ -62,11 +62,7 @@ export default {
 
     methods: {
         addNewBlog: function() {
-            this.$http.post('https://jsonplaceholder.typicode.com/posts', {
-                title: this.blog.title,
-                body: this.blog.content,
-                userId: 1
-            }).then(function(data) {
+            this.$http.post('https://vue-js-cli-sandbox.firebaseio.com/posts.json', this.blog).then(function(data) {
                 console.log(data);
                 this.submitted = true;
             });
