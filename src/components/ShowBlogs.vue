@@ -56,8 +56,9 @@ export default {
 
 <style scoped>
     #show-blogs {
-        margin: 0px auto;
+        margin: 20px auto;
         max-width: 800px;
+        border-radius: 10px;
     }
 
     #show-blogs .single-blog {
